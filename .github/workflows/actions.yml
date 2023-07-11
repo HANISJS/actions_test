@@ -22,9 +22,10 @@ jobs:
       
       - name: Display Python versions
         run: |
-          echo "Python Versions:" > path/to/artifact/world.txt
-          python -c "import sys; print(sys.version)" > path/to/artifact/world.txt
-          echo "----------------------" > path/to/artifact/world.txt
+          python_version="${{ matrix.python-version }}"
+          echo "Python Version: $python_version" >> path/to/artifact/world.txt
+          python -c "import sys; print(sys.version)" >> path/to/artifact/world.txt
+          echo "----------------------" >> path/to/artifact/world.txt
         
       - name: Upload artifact
         uses: actions/upload-artifact@v3
