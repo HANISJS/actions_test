@@ -22,10 +22,11 @@ jobs:
       
       - name: Display Python versions
         run: |
-          for version in ${{ matrix.python-version }}; do
-            echo "Python Version: $version" >> path/to/artifact/world.txt
-            python -c "import sys; print(sys.version)" >> path/to/artifact/world.txt
-            echo "----------------------" >> path/to/artifact/world.txt
+         for version in ${{ matrix.python-version }}; do
+            python_output=$(python -c "import sys; print(sys.version)")
+            echo "$python_version" > path/to/artifact/world_$version.txt
+            echo "$python_output" >> path/to/artifact/world_$version.txt
+            echo "----------------------" >> path/to/artifact/world_$version.txt
           done
         
       - name: Upload artifact
