@@ -24,10 +24,10 @@ jobs:
         run: |
           for version in ${{ matrix.python-version }}; do
             python_output=$(python -c "import sys; print(sys.version)")
-            echo "Python Version: $version" >> path/to/artifact/world.txt
-            echo "$python_output" >> path/to/artifact/world.txt
-            echo "----------------------" >> path/to/artifact/world.txt
-          done
+            echo "Python Version: $version"
+            echo "$python_output"
+            echo "----------------------"
+          done >> path/to/artifact/world.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
