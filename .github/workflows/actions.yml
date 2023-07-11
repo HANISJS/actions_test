@@ -11,24 +11,24 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-     
+
       - name: Create artifact directory
         run: mkdir -p path/to/artifact
-      
+
       - name: Display Python versions
         run: |
-         for version in ${{ matrix.python-version }}; do
+          for version in ${{ matrix.python-version }}; do
             python_output=$(python -c "import sys; print(sys.version)")
-            echo "$python_version" > path/to/artifact/world_$version.txt
-            echo "$python_output" >> path/to/artifact/world_$version.txt
-            echo "----------------------" >> path/to/artifact/world_$version.txt
+            echo "Python Version: $version" >> path/to/artifact/world.txt
+            echo "$python_output" >> path/to/artifact/world.txt
+            echo "----------------------" >> path/to/artifact/world.txt
           done
-        
+
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
