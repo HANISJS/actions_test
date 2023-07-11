@@ -22,7 +22,9 @@ jobs:
         run: mkdir -p path/to/artifact      
           
       - name: Display Python version
-        run: python -c "import sys; print(sys.version)" >> path/to/artifact/world_${{ matrix.python-version }}.txt
+        run: |
+             python -c "import sys; print(sys.version)" >> path/to/artifact/world_${{ matrix.python-version }}.txt
+             echo path/to/artifact/world_${{ matrix.python-version }}.txt >> path/to/artifact/world
         
       - name: Upload artifact
         uses: actions/upload-artifact@v3
