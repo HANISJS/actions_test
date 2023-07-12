@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version:
+          - "3.8"
+          - "3.9"
+          - "3.10"
 
     steps:
       - uses: actions/checkout@v3
@@ -23,7 +26,7 @@ jobs:
       - name: Display Python versions
         run: |
          for version in ${{ matrix.python-version }}; do
-           python -c "import sys; print(sys.version)" | tee -a ${{ github.workspace }}/path/to/artifact/world.txt;
+           python -c "import sys; print(sys.version)" >> ${{ github.workspace }}/path/to/artifact/world.txt;
           done
      
       - name: Upload artifact
