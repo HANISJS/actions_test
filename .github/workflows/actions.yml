@@ -22,7 +22,7 @@ jobs:
 
       - name: Display Python versions
         run: |
-          python -c "import sys; print(sys.version)" >> path/to/artifact/python_${{ matrix.python-version }}.txt
+          python -c "import sys; print(sys.version)" >> path/to/artifact/python_${version}.txt
      
       - name: Upload artifact
         uses: actions/upload-artifact@v3
