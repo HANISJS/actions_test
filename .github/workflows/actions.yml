@@ -23,7 +23,7 @@ jobs:
       - name: Display Python versions
         run: |
          for version in ${{ matrix.python-version }}; do
-           python -c "import sys; print(sys.version)" >> ${{actions_test/.github/workflows}}/path/to/artifact/world.txt;
+           python -c "import sys; print(sys.version)" >> ${{.github/workflows}}/path/to/artifact/world.txt;
           done
      
       - name: Upload artifact
