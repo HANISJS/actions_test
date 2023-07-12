@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version:
+         - "3.8"
+         - "3.9"
+         - "3.10"
 
     steps:
       - uses: actions/checkout@v3
@@ -19,9 +22,6 @@ jobs:
 
       - name: Create artifact directory
         run: mkdir -p path/to/artifact
-
-      - name: Delete existing python_actions.txt
-        run: rm -f path/to/artifact/python_actions.txt
 
       - name: Display Python versions
         run: |
