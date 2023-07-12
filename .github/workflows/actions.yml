@@ -22,7 +22,9 @@ jobs:
 
       - name: Display Python versions
         run: |
-         for version in ${{ matrix.python-version }}; do
+         python_versions=(${{ matrix.python-version }})
+         for ((i=0; i<${#python_versions[@]}; i++)); do
+           version=${python_versions[$i]}
            python_output=$(python${version} -c "import sys; print(sys.version)")
            printf "Python Version: ${version}\n%s\n----------------------\n" "$python_output" >> path/to/artifact/world.txt
          done
