@@ -25,10 +25,10 @@ jobs:
          for version in ${{ matrix.python-version }}; do
             python -c "import sys; print(sys.version)" >> path/to/artifact/world.txt
             echo "----------------------" >> path/to/artifact/world.txt
-          done
+         done
      
-     - name: Upload artifact
-       uses: actions/upload-artifact@v3
-       with:
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
           name: my-artifact
           path: path/to/artifact
