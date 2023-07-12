@@ -28,8 +28,7 @@ jobs:
 
       - name: Display Python versions
         run: |
-          for version in "${{ matrix.python-version[@] }}"; do
-            echo "Python $version"
+          for version in "${{ matrix.python-version }}"; do
             python -c "import sys; print(sys.version)"
             echo
           done >> path/to/artifact/python_actions.txt
