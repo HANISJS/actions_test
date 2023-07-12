@@ -20,13 +20,15 @@ jobs:
       - name: Create artifact directory
         run: mkdir -p path/to/artifact
 
+      - name: Delete existing python_actions.txt
+        run: rm -f path/to/artifact/python_actions.txt
+
       - name: Display Python versions
         run: |
-          python -c "import sys; print(sys.version)" >> python_actions.txt
+          python -c "import sys; print(sys.version)" >> path/to/artifact/python_actions.txt
      
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: python-artifact
-          path: python_actions.txt
-
+          path: path/to/artifact/python_actions.txt
