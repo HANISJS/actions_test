@@ -25,8 +25,9 @@ jobs:
 
       - name: Display Python versions
         run: |
-          python${version} -c "import sys; print(sys.version)" >> ${{ github.workspace }}/path/to/artifact/world.txt
-     
+         for version in ${{ matrix.python-version }}; do
+           python${{ version }} -c "import sys; print(sys.version)" >> ${{ github.workspace }}/path/to/artifact/world.txt
+          done
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
